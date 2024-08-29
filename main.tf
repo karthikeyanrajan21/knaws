@@ -8,3 +8,4 @@ resource "aws_instance" "karthi" {
     Name = "MyInstance"  
   }
 }
+
