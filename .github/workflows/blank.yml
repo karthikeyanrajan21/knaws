@@ -19,3 +19,4 @@ jobs:
           role-to-assume: arn:aws:iam::658044103911:role/Githubkn
           role-session-name: MySessionName
           aws-region: us-east-1
+          managed-session-policies: arn:aws:iam::aws:policy/AmazonEC2FullAccess
