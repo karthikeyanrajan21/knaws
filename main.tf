@@ -1,11 +1,10 @@
-resource "aws_instance" "karthi" {
-  ami           = "ami-0e86e20dae9224db8"
-  instance_type = "t2.micro"  
-  key_name       = "knlapkey"
-  vpc_security_group_ids = ["sg-04736a6da63f91a5b"]
+resource "aws_instance" "newinstance" {
+  ami                    = "ami-085f9c64a9b75eed5"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.knsgq.id]
 
   tags = {
-    Name = "MyInstance"  
+    Name        = "newinstance"
+    description = "ec2forsshandicmp"
   }
 }
-
