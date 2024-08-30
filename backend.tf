@@ -1,9 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = "kn21"
+    bucket         = "knrajan"
     key            = "terraform.tfstate"
-    region         = "us-east-2"
+    region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "kndb"
+    dynamodb_table = "dbstatelock"
   }
 }
+
