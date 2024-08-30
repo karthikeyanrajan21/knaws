@@ -29,14 +29,20 @@ jobs:
         with:
           terraform_version: 1.5.0  # Specify the version of Terraform you want to use
 
-      - name: Terraform Init
-        run: terraform init
+      - name: Terraform Init with Migration Check
+        run: |
+          if terraform init -migrate-state; then
+            echo "State migration successful."
+          else
+            echo "State migration failed. Running without migration."
+            terraform init
+          fi
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve tfplan
         
 #      - name: Terraform Destroy
 #        run: terraform destroy -auto-approve        
